@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://crev2inf1u6xe"]
+
+[ext_resource type="Texture2D" uid="uid://ouw7sd10qujm" path="res://Screenshot 2026-01-16 225428.png" id="1_06t4h"]
+
+[sub_resource type="GDScript" id="GDScript_06t4h"]
+script/source = "extends Control
+
+func _ready():
+	var controlpanel_container = $VBoxContainer
+	var play_button = Button.new()
+	play_button.text = \"Play\"
+	
+	play_button.pressed.connect(_play_button_pressed)
+	
+	controlpanel_container.add_child(play_button)
+
+func _play_button_pressed():
+	get_tree().change_scene_to_file(\"res://controlpanel.tscn\")
+"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_06t4h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Play"]
+position = Vector2(581, 325.5)
+scale = Vector2(2.2795277, 1.3063241)
+texture = ExtResource("1_06t4h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Play"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10

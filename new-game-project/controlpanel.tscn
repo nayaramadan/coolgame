@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddssuf1bgfske"]
+
+[sub_resource type="GDScript" id="GDScript_my3hs"]
+script/source = "extends Control
+
+# grass button
+func _ready():
+	var controlpanel_container = $VBoxContainer
+
+	var grass_button = Button.new()
+	grass_button.text = \"Grass\"
+	
+	grass_button.pressed.connect(_grass_button_pressed)
+	
+	controlpanel_container.add_child(grass_button)
+	
+# moon button
+	var moon_button = Button.new()
+	moon_button.text = \"The Moon\"
+	
+	moon_button.pressed.connect(_moon_button_pressed)
+	
+	controlpanel_container.add_child(moon_button)
+
+# speed button
+	var speed_button = Button.new()
+	speed_button.text = \"Speedy\"
+	
+	speed_button.pressed.connect(_speed_button_pressed)
+	
+	controlpanel_container.add_child(speed_button)
+	
+# asylum button
+	var asylum_button = Button.new()
+	asylum_button.text = \"The Asylum\"
+	
+	asylum_button.pressed.connect(_asylum_button_pressed)
+	
+	controlpanel_container.add_child(asylum_button)
+
+# func
+func _grass_button_pressed():
+	get_tree().change_scene_to_file(\"res://grass.tscn\")
+
+func _moon_button_pressed():
+	get_tree().change_scene_to_file(\"res://moon.tscn\")
+
+func _speed_button_pressed():
+	get_tree().change_scene_to_file(\"res://speed.tscn\")
+
+func _asylum_button_pressed():
+	get_tree().change_scene_to_file(\"res://asylum.tscn\")
+"
+
+[node name="controlpanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_my3hs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

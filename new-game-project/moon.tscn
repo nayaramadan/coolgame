@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://ckgvltw3larjb"]
+
+[node name="moon" type="Node2D"]
