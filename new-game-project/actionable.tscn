@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://i14meem25b6d"]
+
+[node name="Actionable" type="Area2D"]
+collision_layer = 0
