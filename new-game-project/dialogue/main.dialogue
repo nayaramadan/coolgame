@@ -1,0 +1,7 @@
+~ start
+narrator: [wave]hello[/wave], welcome to the cool game.
+- what do I do?
+	narrator: you should start by knowing the basics; [wait=1] W, A, S, D for movement, spacebar for jumping.
+	narrator: you can start by walking along here.
+	narrator: get to the nearby lake.
+=> END
