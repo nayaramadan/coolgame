@@ -3,12 +3,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_77o2l"]
 
 [sub_resource type="GDScript" id="GDScript_77o2l"]
-script/source = "#extends CollisionShape2D
-#
-#func _unhandled_input(event: InputEvent) -> void:
-	#if Input.is_action_just_pressed(\"ui_dialogue\"):
-		#DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/main.dialogue\"), \"start\")
-		#return
+script/source = "extends CollisionShape2D
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed(\"ui_dialogue\"):
+		DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/main.dialogue\"), \"start\")
+		return
 "
 
 [node name="firstnarrator" type="CharacterBody2D"]

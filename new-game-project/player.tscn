@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://ckudr8chj1kgo"]
+[gd_scene load_steps=116 format=3 uid="uid://ckudr8chj1kgo"]
 
 [ext_resource type="Texture2D" uid="uid://gpteflq3ne6c" path="res://images/Eris Esra's Character Template 4.0/16x16/16x16 All Animations-Sheet.png" id="1_hqtel"]
 [ext_resource type="Texture2D" uid="uid://d1d44p7rt05de" path="res://images/Eris Esra's Character Template 4.0/16x16/16x16 Idle-Sheet.png" id="2_sweqy"]
@@ -11,6 +11,7 @@ script/source = "extends CharacterBody2D
 const SPEED = 500.0
 const JUMP_VELOCITY = -300.0 
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var actionable_finder: Area2D = $Direction/ActionableFinder
 var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
 
 func _physics_process(delta):
@@ -39,6 +40,13 @@ func _physics_process(delta):
 			_animated_sprite.play(\"jump\")
 
 	move_and_slide()
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed(\"ui_dialogue\"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
@@ -911,6 +919,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
+radius = 19.0
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = SubResource("GDScript_h2yge")
 
@@ -929,5 +940,15 @@ position_smoothing_speed = 6.0
 position = Vector2(238.99998, -31.999998)
 scale = Vector2(3.0140114, 2.8219166)
 sprite_frames = SubResource("SpriteFrames_qawwx")
-animation = &"run"
+animation = &"happydance"
 autoplay = "idle"
+
+[node name="Direction" type="Marker2D" parent="."]
+
+[node name="ActionableFinder" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
+position = Vector2(239, 0)
+shape = SubResource("CircleShape2D_hqtel")

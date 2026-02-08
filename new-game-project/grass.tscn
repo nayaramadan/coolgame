@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://wt8wswtx51a8"]
+[gd_scene load_steps=20 format=4 uid="uid://wt8wswtx51a8"]
 
 [ext_resource type="Texture2D" uid="uid://c45lw5wl6egy1" path="res://images/RiverParallaxBackground640x360/IndividualsLayers/layer6.PNG" id="1_7d7dn"]
 [ext_resource type="Texture2D" uid="uid://5f504p8bnqbf" path="res://images/Free Sky Backgrounds/Painterly Sky BGs (151).png" id="3_2qnaq"]
@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dckas2uw2wtem" path="res://firstnarrator.tscn" id="7_t05ph"]
 [ext_resource type="Texture2D" uid="uid://klgekdbq3i86" path="res://images/RiverParallaxBackground640x360/IndividualsLayers/layer2.PNG" id="8_77o2l"]
 [ext_resource type="PackedScene" uid="uid://i14meem25b6d" path="res://actionable.tscn" id="8_s1pgd"]
-[ext_resource type="Script" uid="uid://8s2rmn5b0fk6" path="res://actionable.gd" id="9_ds0tr"]
 [ext_resource type="Texture2D" uid="uid://c0pb5cq5hctet" path="res://images/RiverParallaxBackground640x360/IndividualsLayers/layer0.PNG" id="9_iy0ye"]
-[ext_resource type="Resource" uid="uid://r73j8vvtaib8" path="res://dialogue/main.dialogue" id="10_qnqba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2qnaq"]
 size = Vector2(767, 47024)
@@ -1547,10 +1545,9 @@ tile_map_data = PackedByteArray("AAAFAPP/AAAAABUAADAGAPL/AAAAABUAADAGAPP/AAAAABU
 tile_set = SubResource("TileSet_7hxu4")
 
 [node name="firstnarrator" parent="." instance=ExtResource("7_t05ph")]
+position = Vector2(-77, 171)
 
 [node name="Actionable" parent="firstnarrator" instance=ExtResource("8_s1pgd")]
-script = ExtResource("9_ds0tr")
-dialogue_resource = ExtResource("10_qnqba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="firstnarrator/Actionable"]
 position = Vector2(371, -160)
