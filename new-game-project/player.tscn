@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://ckudr8chj1kgo"]
+[gd_scene load_steps=126 format=3 uid="uid://ckudr8chj1kgo"]
 
 [ext_resource type="Texture2D" uid="uid://gpteflq3ne6c" path="res://images/Eris Esra's Character Template 4.0/16x16/16x16 All Animations-Sheet.png" id="1_hqtel"]
 [ext_resource type="Texture2D" uid="uid://d1d44p7rt05de" path="res://images/Eris Esra's Character Template 4.0/16x16/16x16 Idle-Sheet.png" id="2_sweqy"]
@@ -922,6 +922,59 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 radius = 19.0
 
+[sub_resource type="Animation" id="Animation_hqtel"]
+resource_name = "idle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_sweqy"]
+resource_name = "run"
+
+[sub_resource type="Animation" id="Animation_2hs0m"]
+resource_name = "jump"
+
+[sub_resource type="Animation" id="Animation_1jxqw"]
+resource_name = "dance"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dw050"]
+_data = {
+&"dance": SubResource("Animation_1jxqw"),
+&"idle": SubResource("Animation_hqtel"),
+&"jump": SubResource("Animation_2hs0m"),
+&"run": SubResource("Animation_sweqy")
+}
+
+[sub_resource type="Animation" id="Animation_b26j0"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_n7ghd"]
+resource_name = "run"
+
+[sub_resource type="Animation" id="Animation_nvl01"]
+resource_name = "jump"
+
+[sub_resource type="Animation" id="Animation_ivps1"]
+resource_name = "dance"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_urp6f"]
+_data = {
+&"dance": SubResource("Animation_ivps1"),
+&"idle": SubResource("Animation_b26j0"),
+&"jump": SubResource("Animation_nvl01"),
+&"run": SubResource("Animation_n7ghd")
+}
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = SubResource("GDScript_h2yge")
 
@@ -940,7 +993,7 @@ position_smoothing_speed = 6.0
 position = Vector2(238.99998, -31.999998)
 scale = Vector2(3.0140114, 2.8219166)
 sprite_frames = SubResource("SpriteFrames_qawwx")
-animation = &"happydance"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="Direction" type="Marker2D" parent="."]
@@ -952,3 +1005,14 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
 position = Vector2(239, 0)
 shape = SubResource("CircleShape2D_hqtel")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dw050")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+&"": SubResource("AnimationLibrary_urp6f")
+}
