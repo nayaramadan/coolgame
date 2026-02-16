@@ -922,6 +922,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 radius = 19.0
 
+[sub_resource type="Animation" id="Animation_1jxqw"]
+resource_name = "dance"
+
 [sub_resource type="Animation" id="Animation_hqtel"]
 resource_name = "idle"
 length = 5.0
@@ -938,14 +941,11 @@ tracks/0/keys = {
 "values": []
 }
 
-[sub_resource type="Animation" id="Animation_sweqy"]
-resource_name = "run"
-
 [sub_resource type="Animation" id="Animation_2hs0m"]
 resource_name = "jump"
 
-[sub_resource type="Animation" id="Animation_1jxqw"]
-resource_name = "dance"
+[sub_resource type="Animation" id="Animation_sweqy"]
+resource_name = "run"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dw050"]
 _data = {
@@ -955,17 +955,17 @@ _data = {
 &"run": SubResource("Animation_sweqy")
 }
 
+[sub_resource type="Animation" id="Animation_ivps1"]
+resource_name = "dance"
+
 [sub_resource type="Animation" id="Animation_b26j0"]
 resource_name = "idle"
-
-[sub_resource type="Animation" id="Animation_n7ghd"]
-resource_name = "run"
 
 [sub_resource type="Animation" id="Animation_nvl01"]
 resource_name = "jump"
 
-[sub_resource type="Animation" id="Animation_ivps1"]
-resource_name = "dance"
+[sub_resource type="Animation" id="Animation_n7ghd"]
+resource_name = "run"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_urp6f"]
 _data = {
@@ -976,6 +976,7 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(-1, 0)
 script = SubResource("GDScript_h2yge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
