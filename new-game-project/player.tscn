@@ -1,6 +1,7 @@
-[gd_scene load_steps=126 format=3 uid="uid://ckudr8chj1kgo"]
+[gd_scene load_steps=127 format=3 uid="uid://ckudr8chj1kgo"]
 
 [ext_resource type="Texture2D" uid="uid://gpteflq3ne6c" path="res://images/Eris Esra's Character Template 4.0/16x16/16x16 All Animations-Sheet.png" id="1_hqtel"]
+[ext_resource type="Texture2D" uid="uid://veq3k8rws560" path="res://new_atlas_texture.tres" id="1_sweqy"]
 [ext_resource type="Texture2D" uid="uid://d1d44p7rt05de" path="res://images/Eris Esra's Character Template 4.0/16x16/16x16 Idle-Sheet.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://dqe1r0f788lfs" path="res://images/Eris Esra's Character Template 4.0/16x16/16x16 Jump-Sheet.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://cdb6fojw2e4n4" path="res://images/Eris Esra's Character Template 4.0/16x16/16x16 Run-Sheet.png" id="4_1jxqw"]
@@ -424,10 +425,6 @@ region = Rect2(60, 0, 20, 20)
 atlas = ExtResource("3_2hs0m")
 region = Rect2(20, 0, 20, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rup2q"]
-atlas = ExtResource("3_2hs0m")
-region = Rect2(0, 0, 20, 20)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jh1nt"]
 atlas = ExtResource("3_2hs0m")
 region = Rect2(40, 0, 20, 20)
@@ -845,7 +842,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rup2q")
+"texture": ExtResource("1_sweqy")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7fwl2")
@@ -924,6 +921,30 @@ radius = 19.0
 
 [sub_resource type="Animation" id="Animation_1jxqw"]
 resource_name = "dance"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"happydance"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_hqtel"]
 resource_name = "idle"
@@ -947,8 +968,24 @@ resource_name = "jump"
 [sub_resource type="Animation" id="Animation_sweqy"]
 resource_name = "run"
 
+[sub_resource type="Animation" id="Animation_dw050"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"happydance"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dw050"]
 _data = {
+&"RESET": SubResource("Animation_dw050"),
 &"dance": SubResource("Animation_1jxqw"),
 &"idle": SubResource("Animation_hqtel"),
 &"jump": SubResource("Animation_2hs0m"),
@@ -979,6 +1016,9 @@ _data = {
 position = Vector2(-1, 0)
 script = SubResource("GDScript_h2yge")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sweqy")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(238.99998, -26.589725)
 scale = Vector2(1.037319, 1.5056431)
@@ -994,8 +1034,9 @@ position_smoothing_speed = 6.0
 position = Vector2(238.99998, -31.999998)
 scale = Vector2(3.0140114, 2.8219166)
 sprite_frames = SubResource("SpriteFrames_qawwx")
-animation = &"jump"
+animation = &"happydance"
 autoplay = "idle"
+frame = 1
 
 [node name="Direction" type="Marker2D" parent="."]
 

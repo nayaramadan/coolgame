@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://veq3k8rws560"]
+
+[ext_resource type="Texture2D" uid="uid://dqe1r0f788lfs" path="res://images/Eris Esra's Character Template 4.0/16x16/16x16 Jump-Sheet.png" id="1_krenl"]
+
+[resource]
+atlas = ExtResource("1_krenl")
+region = Rect2(0, 0, 20, 20)
