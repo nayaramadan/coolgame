@@ -1545,10 +1545,11 @@ tile_map_data = PackedByteArray("AAAFAPP/AAAAABUAADAGAPL/AAAAABUAADAGAPP/AAAAABU
 tile_set = SubResource("TileSet_7hxu4")
 
 [node name="firstnarrator" parent="." instance=ExtResource("7_t05ph")]
-position = Vector2(-77, 171)
+position = Vector2(-72, 190)
 
 [node name="Actionable" parent="firstnarrator" instance=ExtResource("8_s1pgd")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="firstnarrator/Actionable"]
-position = Vector2(371, -160)
+position = Vector2(371, -125)
+rotation = 0.00067694247
 shape = SubResource("CircleShape2D_xijl3")
