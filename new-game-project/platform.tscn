@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxu3bi7vesn3"]
+
+[ext_resource type="Texture2D" uid="uid://ce5u7ch1ob0p8" path="res://images/IMG_4374.png" id="1_mi635"]
+
+[node name="Platform" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.9802322e-08, 5.9604645e-08)
+scale = Vector2(0.06250001, 0.06250001)
+texture = ExtResource("1_mi635")
+region_enabled = true
+region_rect = Rect2(-0.19, 70.189, 32, 32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
