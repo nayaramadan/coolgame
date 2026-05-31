@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://ckgvltw3larjb"]
+[gd_scene load_steps=5 format=4 uid="uid://ckgvltw3larjb"]
+
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="1_3tcni"]
+[ext_resource type="Texture2D" uid="uid://csw5tdv18y7ap" path="res://images/Drawing-7.sketchpad.png" id="2_rjvio"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7gw7d"]
+texture = ExtResource("2_rjvio")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_2g4ib"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_7gw7d")
 
 [node name="moon" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_3tcni")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-1, 0)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAARAAAAAQAAAAAAAAASAAAAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_2g4ib")
