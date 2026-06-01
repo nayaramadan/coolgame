@@ -1,5 +1,6 @@
 Welcome to the travel game! In this game, your blank character goes through a plain grassy field, all the way to the moon and to other interesting fields!
-<img width="415" height="351" alt="Screenshot 2026-05-31 195457" src="https://github.com/user-attachments/assets/b33999b0-80e9-4f68-abf1-8c7752c8074e" />xx
+
+<img width="415" height="351" alt="Screenshot 2026-05-31 195457" src="https://github.com/user-attachments/assets/b33999b0-80e9-4f68-abf1-8c7752c8074e" />
 
 
 
